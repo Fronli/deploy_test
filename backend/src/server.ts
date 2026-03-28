@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import type { Request, Response } from 'express';
 import eventRoutes from './routes/eventRoutes';
 import testRoutes from './routes/testRoutes';
 
@@ -13,12 +15,16 @@ app.use(cors({
 }));
 
 app.options('*', cors());
-
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../../' , 'frontend')));
+
+//Frontend Serve
+app.get('/', (req: Request, res: Response)=>{
+  res.sendFile(path.join(__dirname, '../../', 'frontend', 'index.html'));
+});
 
 // Routes
 app.use('/api', eventRoutes);
-
 app.use('/api', testRoutes);
 
 app.listen(PORT, () => {
