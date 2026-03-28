@@ -1,7 +1,8 @@
 // Environment Configuration
 const CONFIG = {
     // Local dev: backend on 5000. Will be different in prod based on BASE_URL override
-    BASE_URL: 'http://localhost:5000'
+    // BASE_URL: 'http://localhost:5000'
+    BASE_URL: 'https://nondeafeningly-unformulistic-ciara.ngrok-free.dev'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
